@@ -55,7 +55,7 @@ void CTime::setSeconds(char s)
 	{
 		seconds = s;
 	}
-	else throw -3;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::setMinutes(char m)
@@ -64,7 +64,7 @@ void CTime::setMinutes(char m)
 	{
 		minutes = m;
 	}
-	else throw -2;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::setHours(char h)
@@ -86,23 +86,6 @@ void CTime::setTime(char h, char m, char s)
 	}
 	catch (short e)
 	{		
-		setHours(0);
-		setMinutes(0);
-		setSeconds(0);
-		throw e;
-	}
-}
-
-void CTime::setTime(const CTime& time)
-{
-	try
-	{
-		setHours(time.hours);
-		setMinutes(time.minutes);
-		setSeconds(time.seconds);
-	}
-	catch (short e)
-	{
 		setHours(0);
 		setMinutes(0);
 		setSeconds(0);
@@ -134,7 +117,7 @@ void CTime::addSeconds(unsigned s)
 		}
 		else seconds += s;
 	}
-	else throw - 6;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::addMinutes(unsigned m)
@@ -161,7 +144,7 @@ void CTime::addMinutes(unsigned m)
 		}
 		else minutes += m;
 	}
-	else throw -5;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::addHours(unsigned h)
@@ -178,7 +161,7 @@ void CTime::addHours(unsigned h)
 		else if ((unsigned)hours + h == 24) hours = 0;
 		else hours += h;
 	}
-	else throw -4;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::subSeconds(int s)
@@ -201,7 +184,7 @@ void CTime::subSeconds(int s)
 		else if ((unsigned)seconds - s == 0) seconds = 0;
 		else seconds -= s;
 	}
-	else throw -7;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::subMinutes(int m)
@@ -224,7 +207,7 @@ void CTime::subMinutes(int m)
 		else if ((unsigned)minutes - m == 0) minutes = 0;
 		else minutes -= m;
 	}
-	else throw -8;
+	else throw ExceptionIvalidArgument;
 }
 
 void CTime::subHours(int h)
@@ -241,7 +224,7 @@ void CTime::subHours(int h)
 		}
 		else hours -= h;
 	}
-	else throw -9;
+	else throw ExceptionIvalidArgument;
 }
 
 CTime CTime::operator+(const CTime& other)

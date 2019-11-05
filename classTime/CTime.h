@@ -12,7 +12,7 @@ public:
 	unsigned short getSeconds() const;
 	unsigned short getMinutes() const;
 	unsigned short getHours() const;
-	std::string toString(std::string spacer) const;
+	std::string toString(std::string spacer = ":") const;
 
 	unsigned timeToSeconds() const;
 	float timeToMinutes() const;
@@ -22,7 +22,6 @@ public:
 	void setMinutes(char m);
 	void setHours(char h);
 	void setTime(char h, char m, char s);
-	void setTime(const CTime& time);
 
 	void addSeconds(unsigned s);
 	void addMinutes(unsigned m);
